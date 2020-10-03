@@ -10,6 +10,10 @@
 npm install --save aesthetic-charts
 ```
 
+```bash
+yarn add aesthetic-charts
+```
+
 ## Usage
 
 ```tsx
