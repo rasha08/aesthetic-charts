@@ -1,13 +1,15 @@
 {
   "name": "aesthetic-charts-example",
-  "homepage": ".",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://rasha08.github.io/aesthetic-charts",
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@testing-library/jest-dom": "link:../node_modules/@testing-library/jest-dom",
@@ -22,6 +24,8 @@
     "react": "link:../node_modules/react",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "link:../node_modules/react-dom",
+    "react-element-to-jsx-string": "^14.3.1",
+    "react-markdown": "^4.3.1",
     "react-scripts": "link:../node_modules/react-scripts",
     "typescript": "link:../node_modules/typescript"
   },

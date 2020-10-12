@@ -6,9 +6,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('https://images.unsplash.com/photo-1546017535-ed107a04ac7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0 0;
+  min-height: 100vh;
+}
+
+pre {
+   width: 720px;
+   overflow: auto;
+   height: 500px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.collapsible input[id^=collapsible]:checked~div.collapsible-body  {
+  overflow-y: scroll;
 }
