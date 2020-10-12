@@ -2,8 +2,8 @@
 const Doughnut = () => {
   const [selectedIndex, setSelectedIndex] = useState<number[]>([])
 
-  const data = [50, 100, 75]
-  const labels = ['Mobile', 'Tablet', 'Desktop']
+  const data = [50, 100, 75, 14, 89]
+  const labels = ['Mobile', 'Tablet', 'Desktop', 'Test', 'Kita']
 
   const chartOptions = {
     legend: {

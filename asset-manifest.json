@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/aesthetic-charts/static/css/main.47847187.chunk.css",
-    "main.js": "/aesthetic-charts/static/js/main.1fdd83a6.chunk.js",
-    "main.js.map": "/aesthetic-charts/static/js/main.1fdd83a6.chunk.js.map",
+    "main.js": "/aesthetic-charts/static/js/main.caf6161f.chunk.js",
+    "main.js.map": "/aesthetic-charts/static/js/main.caf6161f.chunk.js.map",
     "runtime-main.js": "/aesthetic-charts/static/js/runtime-main.fa236eef.js",
     "runtime-main.js.map": "/aesthetic-charts/static/js/runtime-main.fa236eef.js.map",
     "static/js/2.9e969351.chunk.js": "/aesthetic-charts/static/js/2.9e969351.chunk.js",
     "static/js/2.9e969351.chunk.js.map": "/aesthetic-charts/static/js/2.9e969351.chunk.js.map",
     "index.html": "/aesthetic-charts/index.html",
-    "precache-manifest.d947844712400cc5a6ce5e9a0319b642.js": "/aesthetic-charts/precache-manifest.d947844712400cc5a6ce5e9a0319b642.js",
+    "precache-manifest.ddba93cfdf74e1169ced443333a54198.js": "/aesthetic-charts/precache-manifest.ddba93cfdf74e1169ced443333a54198.js",
     "service-worker.js": "/aesthetic-charts/service-worker.js",
     "static/css/main.47847187.chunk.css.map": "/aesthetic-charts/static/css/main.47847187.chunk.css.map",
     "static/js/2.9e969351.chunk.js.LICENSE.txt": "/aesthetic-charts/static/js/2.9e969351.chunk.js.LICENSE.txt",
-    "static/media/Doughnut.md": "/aesthetic-charts/static/media/Doughnut.4dd6c995.md",
+    "static/media/Doughnut.md": "/aesthetic-charts/static/media/Doughnut.0f582ced.md",
     "static/media/LineBar.md": "/aesthetic-charts/static/media/LineBar.a0017100.md"
   },
   "entrypoints": [
     "static/js/runtime-main.fa236eef.js",
     "static/js/2.9e969351.chunk.js",
     "static/css/main.47847187.chunk.css",
-    "static/js/main.1fdd83a6.chunk.js"
+    "static/js/main.caf6161f.chunk.js"
   ]
 }
