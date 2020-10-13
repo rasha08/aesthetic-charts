@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c3745572a4a19a52dcb10aa73f988e83",
+    "revision": "08c19d1843f5da49e416046a4ca3f249",
     "url": "/aesthetic-charts/index.html"
   },
   {
-    "revision": "565c17504c954e443a77",
+    "revision": "a172bdcfca7a07b3d3c9",
     "url": "/aesthetic-charts/static/css/main.47847187.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/aesthetic-charts/static/js/2.9e969351.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "565c17504c954e443a77",
-    "url": "/aesthetic-charts/static/js/main.caf6161f.chunk.js"
+    "revision": "a172bdcfca7a07b3d3c9",
+    "url": "/aesthetic-charts/static/js/main.8075a6bc.chunk.js"
   },
   {
     "revision": "08819ea349eb9f66f10d",

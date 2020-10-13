@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/aesthetic-charts/static/css/main.47847187.chunk.css",
-    "main.js": "/aesthetic-charts/static/js/main.caf6161f.chunk.js",
-    "main.js.map": "/aesthetic-charts/static/js/main.caf6161f.chunk.js.map",
+    "main.js": "/aesthetic-charts/static/js/main.8075a6bc.chunk.js",
+    "main.js.map": "/aesthetic-charts/static/js/main.8075a6bc.chunk.js.map",
     "runtime-main.js": "/aesthetic-charts/static/js/runtime-main.fa236eef.js",
     "runtime-main.js.map": "/aesthetic-charts/static/js/runtime-main.fa236eef.js.map",
     "static/js/2.9e969351.chunk.js": "/aesthetic-charts/static/js/2.9e969351.chunk.js",
     "static/js/2.9e969351.chunk.js.map": "/aesthetic-charts/static/js/2.9e969351.chunk.js.map",
     "index.html": "/aesthetic-charts/index.html",
-    "precache-manifest.ddba93cfdf74e1169ced443333a54198.js": "/aesthetic-charts/precache-manifest.ddba93cfdf74e1169ced443333a54198.js",
+    "precache-manifest.85357f37609e7cb1a7a0ac803af4d9a3.js": "/aesthetic-charts/precache-manifest.85357f37609e7cb1a7a0ac803af4d9a3.js",
     "service-worker.js": "/aesthetic-charts/service-worker.js",
     "static/css/main.47847187.chunk.css.map": "/aesthetic-charts/static/css/main.47847187.chunk.css.map",
     "static/js/2.9e969351.chunk.js.LICENSE.txt": "/aesthetic-charts/static/js/2.9e969351.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.fa236eef.js",
     "static/js/2.9e969351.chunk.js",
     "static/css/main.47847187.chunk.css",
-    "static/js/main.caf6161f.chunk.js"
+    "static/js/main.8075a6bc.chunk.js"
   ]
 }
