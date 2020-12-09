@@ -5,22 +5,34 @@ import { useScreenSize } from '../../hooks/useScreenSize'
 import './customStyle'
 
 type LineBarChartProps = {
-  lineChartValues: number[];
-  barChartValues: number[];
-  barChartLabel: string;
-  lineChartLabel: string;
-  labels: number[] | string[],
-  chartOptions?: ChartOptions,
-  secondaryBarChartValues?: number[];
-  secondaryBarChartLabel?: string;
+  lineChartValues: number[]
+  barChartValues: number[]
+  barChartLabel: string
+  lineChartLabel: string
+  labels: number[] | string[]
+  chartOptions?: ChartOptions
+  secondaryBarChartValues?: number[]
+  secondaryBarChartLabel?: string
   tooltipFormatter?: (n: number) => string
-  xLabel?: string,
+  xLabel?: string
   formattedXLabels?: string[]
 }
 
 const format = (num: any) => Math.round((num + Number.EPSILON) * 100) / 100
 
-export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChartLabel, barChartValues, chartOptions = {}, tooltipFormatter = a => a.toString(), secondaryBarChartLabel, secondaryBarChartValues, xLabel, formattedXLabels = [] }: LineBarChartProps) => {
+export const LineBarChart = ({
+  lineChartLabel,
+  lineChartValues,
+  labels,
+  barChartLabel,
+  barChartValues,
+  chartOptions = {},
+  tooltipFormatter = (a) => a.toString(),
+  secondaryBarChartLabel,
+  secondaryBarChartValues,
+  xLabel,
+  formattedXLabels = []
+}: LineBarChartProps) => {
   const { width } = useScreenSize()
   const data = useMemo(() => {
     return {
@@ -37,7 +49,7 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
           pointHoverBackgroundColor: 'rgba(255,214,13, 1)',
           pointHoverBorderColor: 'rgba(255,214,13, 1)',
           borderWidth: 4,
-          yAxisID: 'y-axis-2',
+          yAxisID: 'y-axis-2'
         },
         {
           type: 'bar',
@@ -49,23 +61,34 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
           hoverBackgroundColor: '#1e1e1e',
           hoverBorderColor: '#1e1e1e',
           yAxisID: 'y-axis-1',
-          barThickness: (width || 0) > 500 ? 12 : 6,
+          barThickness:
+            labels.length < 14
+              ? 300 / ((width || 0) > 500 ? labels.length : labels.length * 2)
+              : (width || 0) > 500
+              ? labels.length > 31
+                ? 7
+                : 18
+              : labels.length > 31
+              ? 4
+              : 8
         },
-        ...(secondaryBarChartValues?.length ? [
-          {
-            type: 'bar',
-            label: secondaryBarChartLabel,
-            data: secondaryBarChartValues,
-            fill: false,
-            backgroundColor: '#55749e',
-            borderColor: '#55749e',
-            hoverBackgroundColor: '#55749e',
-            hoverBorderColor: '#55749e',
-            yAxisID: 'y-axis-1',
-            barThickness: (width || 0) > 500 ? 12 : 6,
-          }] :
-          []
-        )
+        ...(secondaryBarChartValues?.length
+          ? [
+              {
+                type: 'bar',
+                label: secondaryBarChartLabel,
+                data: secondaryBarChartValues,
+                fill: false,
+                backgroundColor: '#55749e',
+                borderColor: '#55749e',
+                hoverBackgroundColor: '#55749e',
+                hoverBorderColor: '#55749e',
+                yAxisID: 'y-axis-1',
+                barThickness: 0,
+                borderWidth: 0
+              }
+            ]
+          : [])
       ]
     }
   }, [lineChartLabel, lineChartValues, barChartLabel, barChartValues])
@@ -79,10 +102,15 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
         legend: {
           labels: {
             usePointStyle: true,
+            filter: function (item) {
+              // Logic to remove a particular legend item goes here
+              return item.datasetIndex !== 2
+            }
           },
+          onClick: () => false
         },
         tooltips: {
-          mode: 'index',
+          mode: 'index'
         },
         elements: {
           line: {
@@ -93,6 +121,7 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
           xAxes: [
             {
               display: true,
+              stacked: true,
               gridLines: {
                 display: false
               },
@@ -103,10 +132,15 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
               },
               ticks: {
                 beginAtZero: false,
-                callback: function (value: any) {
-                  // @ts-ignore
-                  return formattedXLabels[labels.indexOf(value)] || value
+                callback: function (value: any, index) {
+                  return formattedXLabels[index] || value
                 },
+                maxTicksLimit:
+                  (width || 0) < 500
+                    ? labels.length / 2
+                    : labels.length > 31
+                    ? 24
+                    : 31
               }
             }
           ],
@@ -115,9 +149,10 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
               type: 'linear',
               display: true,
               position: 'left',
+              stacked: true,
               scaleLabel: {
                 display: true,
-                labelString: `${barChartLabel} ${secondaryBarChartValues?.length ? ` / ${secondaryBarChartLabel}` : ''}`
+                labelString: barChartLabel
               },
               id: 'y-axis-1',
               gridLines: {
@@ -129,8 +164,9 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
               ticks: {
                 beginAtZero: false,
                 callback: function (value: any) {
-                  return tooltipFormatter(format(value));
+                  return tooltipFormatter(format(value))
                 },
+                maxTicksLimit: (width || 0) < 500 ? labels.length / 4 : 20
               }
             },
             {
@@ -151,44 +187,72 @@ export const LineBarChart = ({ lineChartLabel, lineChartValues, labels, barChart
               ticks: {
                 beginAtZero: true,
                 callback: function (value: any) {
-                  return '$' + tooltipFormatter(format(value));
+                  return '$' + tooltipFormatter(format(value))
                 },
+                maxTicksLimit: (width || 0) < 500 ? labels.length / 4 : 20
               }
-            },
+            }
           ]
         }
       },
       tooltips: {
         mode: 'label',
+        filter: () => true,
         callbacks: {
           label: function (tooltipItem: any, data: any) {
-            const i = tooltipItem.datasetIndex;
-            return data.datasets[i].label + ': ' + tooltipFormatter(format(+tooltipItem.value)) + (i !== 1 ? '$' : '');
+            const i = tooltipItem.datasetIndex
+            if (i === 2) {
+              return (
+                data.datasets[i].label +
+                ': ' +
+                format(+tooltipItem.value).toLocaleString(
+                  window.navigator.language,
+                  { minimumFractionDigits: 3, maximumFractionDigits: 3 }
+                ) +
+                (i !== 1 ? '$' : '')
+              )
+            }
+            return (
+              data.datasets[i].label +
+              ': ' +
+              tooltipFormatter(format(+tooltipItem.value)) +
+              (i !== 1 ? '$' : '')
+            )
           },
           title: function (tooltipItem: any) {
-            return formattedXLabels[tooltipItem[0].index] || tooltipItem[0].label
+            return (
+              formattedXLabels[tooltipItem[0].index] || tooltipItem[0].label
+            )
           }
         }
       } as ChartTooltipOptions,
       ...chartOptions
-    } as ChartOptions;
+    } as ChartOptions
   }, [width])
 
-  const plugins = useMemo(() => [
-    {
-      beforeDraw: function (c: any) {
-        c.legend.legendItems.forEach(function (e: any, i: number) {
-          if (i === 0) {
-            e.fillStyle = 'rgba(255,214,13, 1)'
-          }
-        });
+  const plugins = useMemo(
+    () => [
+      {
+        beforeDraw: function (c: any) {
+          c.legend.legendItems.forEach(function (e: any, i: number) {
+            if (i === 0) {
+              e.fillStyle = 'rgba(255,214,13, 1)'
+            }
+          })
+        }
       }
-    }
-  ], [])
-
+    ],
+    []
+  )
 
   return (
     // @ts-ignore
-    <Bar data={data} options={options} height={null} width={null} plugins={plugins} />
+    <Bar
+      data={data}
+      options={options}
+      height={null}
+      width={null}
+      plugins={plugins}
+    />
   )
 }

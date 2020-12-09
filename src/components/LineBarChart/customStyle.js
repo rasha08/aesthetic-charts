@@ -91,14 +91,14 @@ ChartJS.elements.Rectangle.prototype.draw = function () {
     const x = corners[1][0]
     const y = corners[1][1]
 
-    let radius = 30
+    let radius = 10
 
     // Fix radius being too large
-    if (radius > Math.abs(height) / 1.5) {
-      radius = Math.floor(Math.abs(height) / 1.5)
+    if (radius > Math.abs(height) / 1.8) {
+      radius = Math.floor(Math.abs(height) / 1.8)
     }
-    if (radius > Math.abs(width) / 1.5) {
-      radius = Math.floor(Math.abs(width) / 1.5)
+    if (radius > Math.abs(width) / 1.7) {
+      radius = Math.floor(Math.abs(width) / 1.7)
     }
 
     if (height < 0) {

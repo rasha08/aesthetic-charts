@@ -1,6 +1,6 @@
 {
   "name": "aesthetic-charts",
-  "version": "1.0.37",
+  "version": "1.2.6",
   "description": "React charts library created on top of react-chartjs-2 and chartjs for beautiful aesthetic charts",
   "author": "rasha08",
   "license": "MIT",
